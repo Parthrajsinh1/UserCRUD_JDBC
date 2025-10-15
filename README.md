@@ -4,23 +4,6 @@
 
 ---
 
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Prerequisites](#prerequisites)
-3. [Database & Table Setup](#database--table-setup)
-4. [Configuration](#configuration)
-5. [Compile & Run (Step by Step)](#compile--run-step-by-step)
-6. [Detailed Code Walkthrough](#detailed-code-walkthrough)
-7. [Security & Quality Improvements (Recommendations)](#security--quality-improvements-recommendations)
-8. [Practical Extensions / Architecture Suggestions](#practical-extensions--architecture-suggestions)
-9. [Troubleshooting — Common Issues & Fixes](#troubleshooting--common-issues--fixes)
-10. [Testing, CI & Docker](#testing-ci--docker)
-11. [Further Notes & Resources](#further-notes--resources)
-12. [Author / License](#author--license)
-
----
-
 ## Project Overview
 
 This project is a simple **Java console application** that performs basic CRUD operations on a MySQL `users` table using JDBC. The application provides a text-based menu with the following features:
@@ -42,12 +25,7 @@ This project is a simple **Java console application** that performs basic CRUD o
 * **MySQL JDBC Connector JAR** (e.g., `mysql-connector-java-8.x.x.jar`) must be in the classpath
 * **IDE** (IntelliJ, Eclipse) or command line tools
 
-Optional:
 
-* Maven/Gradle for dependency management
-* Docker (to run a local MySQL instance)
-
----
 
 ## Database & Table Setup
 
@@ -80,22 +58,7 @@ Replace `root` and `password` with your MySQL username and password.
 
 ---
 
-## Compile & Run (Step by Step)
 
-1. Save the file as `Program01.java` inside `com/jdbc/basics/`.
-2. Compile:
-
-   ```bash
-   javac -cp .;mysql-connector-java-8.x.x.jar com/jdbc/basics/Program01.java
-   ```
-3. Run:
-
-   ```bash
-   java -cp .;mysql-connector-java-8.x.x.jar com.jdbc.basics.Program01
-   ```
-4. Follow the console menu to perform CRUD operations.
-
----
 
 ## Detailed Code Walkthrough
 
@@ -145,26 +108,6 @@ String delete = "DELETE FROM users WHERE uid=?";
 
 ---
 
-## Security & Quality Improvements (Recommendations)
-
-* **Password Storage**: Never store plain text passwords. Use hashing (e.g., BCrypt, SHA-256 + salt).
-* **Error Handling**: Replace `throws Exception` with proper `try-catch` blocks.
-* **Resource Management**: Use `try-with-resources` for `Connection`.
-* **Input Validation**: Ensure inputs (especially username/password) are sanitized.
-* **Logging**: Replace `System.out.println` with a logging framework (SLF4J, Log4j).
-
----
-
-## Practical Extensions / Architecture Suggestions
-
-* Implement **DAO Layer** (Data Access Object) to separate logic from database operations.
-* Add **User Authentication System** with hashed passwords.
-* Introduce a **GUI** (Swing/JavaFX) or a **REST API** (Spring Boot).
-* Use **Maven/Gradle** for dependency management.
-* Add **Unit Tests** for each CRUD method.
-
----
-
 ## Troubleshooting — Common Issues & Fixes
 
 | Issue                                  | Cause                | Fix                                         |
@@ -176,39 +119,4 @@ String delete = "DELETE FROM users WHERE uid=?";
 
 ---
 
-## Testing, CI & Docker
-
-* **Testing**: Use JUnit + H2 in-memory DB for testing CRUD logic.
-* **CI/CD**: Integrate with GitHub Actions to run tests automatically.
-* **Docker**: Use a MySQL Docker container for consistent environment.
-
-Example `docker-compose.yml`:
-
-```yaml
-version: '3.8'
-services:
-  db:
-    image: mysql:8.0
-    container_name: mysql_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: practice
-    ports:
-      - "3306:3306"
-```
-
----
-
-## Further Notes & Resources
-
-* [JDBC Official Documentation](https://docs.oracle.com/javase/tutorial/jdbc/)
-* [MySQL Connector/J Documentation](https://dev.mysql.com/doc/connector-j/8.0/en/)
-* [Effective Java (Book by Joshua Bloch)](https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/)
-
----
-
-## Author / License
-
-* Author: Parthrajsinh Gol
-* License: Open Source (MIT or as preferred)
+ or as preferred)
